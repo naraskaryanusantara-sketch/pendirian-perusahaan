@@ -1,0 +1,673 @@
+
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BURAQ - Jasa Pendirian Perusahaan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-pink': '#ff1493',
+            },
+            fontFamily: {
+              poppins: ['Poppins', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="bg-slate-100 font-poppins text-slate-800">
+    <div class="relative min-h-screen">
+        <!-- Sidebar -->
+        <div>
+            <!-- Mobile Sidebar -->
+            <div id="mobile-sidebar-container" class="relative z-40 lg:hidden hidden" role="dialog" aria-modal="true">
+                <div id="sidebar-overlay" class="fixed inset-0 bg-gray-900/80"></div>
+                <div class="fixed inset-0 flex">
+                    <div class="relative mr-16 flex w-full max-w-xs flex-1">
+                        <div class="absolute left-full top-0 flex w-16 justify-center pt-5">
+                            <button id="close-sidebar-btn" type="button" class="-m-2.5 p-2.5">
+                                <span class="sr-only">Close sidebar</span>
+                                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+                        <!-- Sidebar content -->
+                        <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-slate-900 px-6 pb-4">
+                            <div class="flex h-16 shrink-0 items-center">
+                                <h1 class="text-2xl font-bold text-white">BURAQ<span class="text-brand-pink">.</span></h1>
+                            </div>
+                            <nav class="flex flex-1 flex-col">
+                                <ul role="list" class="flex flex-1 flex-col gap-y-7">
+                                    <li>
+                                        <ul role="list" class="-mx-2 space-y-1" id="nav-links-mobile">
+                                            <li><a href="#hero" class="group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-slate-300 hover:text-white hover:bg-slate-800"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg>Beranda</a></li>
+                                            <li><a href="#services" class="group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-slate-300 hover:text-white hover:bg-slate-800"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" /></svg>Layanan Kami</a></li>
+                                            <li><a href="#why-us" class="group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-slate-300 hover:text-white hover:bg-slate-800"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>Mengapa Kami</a></li>
+                                            <li><a href="#process" class="group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-slate-300 hover:text-white hover:bg-slate-800"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672ZM12 2.25V4.5m5.834.166-1.591 1.591M20.25 10.5H18M5.834 19.834l-1.591-1.591M3.75 10.5H6m13.166-5.834-1.591-1.591M5.834 5.166 4.243 3.575M12 21.75V19.5" /></svg>Proses Kerja</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Static sidebar for desktop -->
+            <div class="hidden lg:fixed lg:inset-y-0 lg:z-40 lg:flex lg:w-64 lg:flex-col">
+                <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-slate-900 px-6 pb-4">
+                    <div class="flex h-16 shrink-0 items-center">
+                        <h1 class="text-2xl font-bold text-white">BURAQ<span class="text-brand-pink">.</span></h1>
+                    </div>
+                    <nav class="flex flex-1 flex-col">
+                        <ul role="list" class="flex flex-1 flex-col gap-y-7">
+                            <li>
+                                <ul role="list" class="-mx-2 space-y-1" id="nav-links-desktop">
+                                    <li><a href="#hero" class="group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-slate-300 hover:text-white hover:bg-slate-800"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg>Beranda</a></li>
+                                    <li><a href="#services" class="group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-slate-300 hover:text-white hover:bg-slate-800"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" /></svg>Layanan Kami</a></li>
+                                    <li><a href="#why-us" class="group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-slate-300 hover:text-white hover:bg-slate-800"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>Mengapa Kami</a></li>
+                                    <li><a href="#process" class="group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold text-slate-300 hover:text-white hover:bg-slate-800"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6 shrink-0"><path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672ZM12 2.25V4.5m5.834.166-1.591 1.591M20.25 10.5H18M5.834 19.834l-1.591-1.591M3.75 10.5H6m13.166-5.834-1.591-1.591M5.834 5.166 4.243 3.575M12 21.75V19.5" /></svg>Proses Kerja</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main content -->
+        <div class="lg:pl-64">
+            <!-- Header for Mobile -->
+            <div class="sticky top-0 z-30 flex h-16 shrink-0 items-center gap-x-4 border-b border-slate-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:hidden">
+                <button id="open-sidebar-btn" type="button" class="-m-2.5 p-2.5 text-slate-700 lg:hidden">
+                    <span class="sr-only">Open sidebar</span>
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+                <div class="flex-1 text-lg font-semibold leading-6 text-slate-900">
+                    BURAQ<span class="text-brand-pink">.</span>
+                </div>
+            </div>
+
+            <main>
+                <div class="px-4 sm:px-6 lg:px-8">
+                    <!-- Hero Section -->
+                    <section id="hero" class="py-20 sm:py-32">
+                        <div class="container mx-auto text-center">
+                            <div class="relative rounded-2xl bg-slate-900 p-8 sm:p-16 overflow-hidden" style="background-image: radial-gradient(circle at top right, rgba(255, 20, 147, 0.2), transparent 40%), radial-gradient(circle at bottom left, rgba(255, 20, 147, 0.2), transparent 50%)">
+                                <h1 class="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+                                    Wujudkan Badan Usaha Impian Anda Bersama <span class="text-brand-pink">BURAQ</span>
+                                </h1>
+                                <p class="mt-6 text-lg max-w-3xl mx-auto text-slate-300">
+                                    Layanan pendirian perusahaan profesional, cepat, dan terpercaya. Fokus pada bisnis Anda, biarkan kami yang mengurus legalitasnya.
+                                </p>
+                                <div class="mt-10 flex items-center justify-center gap-x-6">
+                                    <a href="#services" class="rounded-md bg-brand-pink px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-pink transition-colors duration-300">
+                                        Lihat Layanan Kami
+                                    </a>
+                                    <a href="#footer" class="text-sm font-semibold leading-6 text-slate-200 hover:text-white">
+                                        Hubungi Kami <span aria-hidden="true">→</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Services Section -->
+                    <section id="services" class="py-20 sm:py-24">
+                        <div class="container mx-auto">
+                            <div class="text-center">
+                                <h2 class="text-base font-semibold text-brand-pink">Layanan Kami</h2>
+                                <p class="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+                                    Solusi Legalitas Usaha Terlengkap
+                                </p>
+                                <p class="mt-6 text-lg leading-8 text-slate-600 max-w-2xl mx-auto">
+                                    Kami menyediakan berbagai jasa pendirian badan usaha untuk memenuhi kebutuhan spesifik Anda.
+                                </p>
+                            </div>
+                            <div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                                <!-- Service Card: PT Perorangan -->
+                                <div class="group relative transform hover:-translate-y-2 transition-transform duration-300 ease-in-out">
+                                    <div class="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                                    <div class="relative bg-white p-6 rounded-xl shadow-lg h-full flex flex-col">
+                                        <div>
+                                            <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-brand-pink mb-4">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-white"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" /></svg>
+                                            </div>
+                                            <h3 class="text-lg font-semibold text-slate-900">PT Perorangan</h3>
+                                            <p class="mt-2 text-sm text-slate-600">Solusi cepat untuk usaha mikro & kecil dengan pendiri tunggal.</p>
+                                        </div>
+                                        <div class="mt-auto pt-4">
+                                            <p class="text-lg font-bold text-slate-800">Mulai dari <span class="text-brand-pink">Rp 1.5 Jt</span></p>
+                                            <button data-service="Pendirian PT Perorangan" class="open-modal-btn mt-4 block w-full text-center rounded-md bg-brand-pink px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-opacity-80 transition-colors duration-300">Pesan Sekarang</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Service Card: PT Reguler -->
+                                <div class="group relative transform hover:-translate-y-2 transition-transform duration-300 ease-in-out">
+                                    <div class="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                                    <div class="relative bg-white p-6 rounded-xl shadow-lg h-full flex flex-col">
+                                        <div>
+                                            <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-brand-pink mb-4">
+                                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-white"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21v-4.5m0 4.5h4.5m-4.5 0L9 15M3.75 3v4.5m0-4.5h4.5m-4.5 0L9 9m12-3h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 12h-4.5m4.5 0v-4.5m0 4.5L15 15" /></svg>
+                                            </div>
+                                            <h3 class="text-lg font-semibold text-slate-900">PT Reguler</h3>
+                                            <p class="mt-2 text-sm text-slate-600">Untuk bisnis dengan dua pemegang saham atau lebih, skala nasional.</p>
+                                        </div>
+                                        <div class="mt-auto pt-4">
+                                            <p class="text-lg font-bold text-slate-800">Mulai dari <span class="text-brand-pink">Rp 5.0 Jt</span></p>
+                                            <button data-service="Pendirian PT Reguler" class="open-modal-btn mt-4 block w-full text-center rounded-md bg-brand-pink px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-opacity-80 transition-colors duration-300">Pesan Sekarang</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Service Card: CV -->
+                                <div class="group relative transform hover:-translate-y-2 transition-transform duration-300 ease-in-out">
+                                    <div class="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                                    <div class="relative bg-white p-6 rounded-xl shadow-lg h-full flex flex-col">
+                                        <div>
+                                            <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-brand-pink mb-4">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-white"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m-7.5-2.962c.57-1.03-.094-2.342-1.125-2.962C5.038 9.78 3 11.233 3 12.75v3.25a.75.75 0 0 0 .75.75 2.25 2.25 0 0 1 2.25 2.25c0 1.152-.26 2.243-.723 3.218a.75.75 0 0 0 .626 1.056l3.6-1.8M15.75 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /></svg>
+                                            </div>
+                                            <h3 class="text-lg font-semibold text-slate-900">Pendirian CV</h3>
+                                            <p class="mt-2 text-sm text-slate-600">Bentuk usaha ideal untuk kemitraan dengan sekutu aktif dan pasif.</p>
+                                        </div>
+                                        <div class="mt-auto pt-4">
+                                            <p class="text-lg font-bold text-slate-800">Mulai dari <span class="text-brand-pink">Rp 2.5 Jt</span></p>
+                                            <button data-service="Pendirian CV" class="open-modal-btn mt-4 block w-full text-center rounded-md bg-brand-pink px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-opacity-80 transition-colors duration-300">Pesan Sekarang</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Service Card: Firma -->
+                                <div class="group relative transform hover:-translate-y-2 transition-transform duration-300 ease-in-out">
+                                    <div class="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                                    <div class="relative bg-white p-6 rounded-xl shadow-lg h-full flex flex-col">
+                                        <div>
+                                            <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-brand-pink mb-4">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-white"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.05a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V8.25a2.25 2.25 0 0 1 2.25-2.25h15a2.25 2.25 0 0 1 2.25 2.25v.75m-4.5-3.75-2.25-2.25-2.25 2.25m-5.25 0L7.5 4.5 5.25 6.75m15 3-3-3m0 0-3 3m3-3v12" /></svg>
+                                            </div>
+                                            <h3 class="text-lg font-semibold text-slate-900">Pendirian Firma</h3>
+                                            <p class="mt-2 text-sm text-slate-600">Cocok untuk usaha persekutuan di mana setiap anggota bertanggung jawab penuh.</p>
+                                        </div>
+                                        <div class="mt-auto pt-4">
+                                            <p class="text-lg font-bold text-slate-800">Mulai dari <span class="text-brand-pink">Rp 2.0 Jt</span></p>
+                                            <button data-service="Pendirian Firma" class="open-modal-btn mt-4 block w-full text-center rounded-md bg-brand-pink px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-opacity-80 transition-colors duration-300">Pesan Sekarang</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <!-- Service Card: Yayasan -->
+                                <div class="group relative transform hover:-translate-y-2 transition-transform duration-300 ease-in-out">
+                                    <div class="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                                    <div class="relative bg-white p-6 rounded-xl shadow-lg h-full flex flex-col">
+                                        <div>
+                                            <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-brand-pink mb-4">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-white"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" /></svg>
+                                            </div>
+                                            <h3 class="text-lg font-semibold text-slate-900">Pendirian Yayasan</h3>
+                                            <p class="mt-2 text-sm text-slate-600">Bantuan hukum untuk organisasi nirlaba di bidang sosial & keagamaan.</p>
+                                        </div>
+                                        <div class="mt-auto pt-4">
+                                            <p class="text-lg font-bold text-slate-800">Mulai dari <span class="text-brand-pink">Rp 4.5 Jt</span></p>
+                                            <button data-service="Pendirian Yayasan" class="open-modal-btn mt-4 block w-full text-center rounded-md bg-brand-pink px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-opacity-80 transition-colors duration-300">Pesan Sekarang</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Service Card: Perkumpulan -->
+                                <div class="group relative transform hover:-translate-y-2 transition-transform duration-300 ease-in-out">
+                                    <div class="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                                    <div class="relative bg-white p-6 rounded-xl shadow-lg h-full flex flex-col">
+                                        <div>
+                                            <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-brand-pink mb-4">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-white"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-2.278 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-4.663M3.75 10.5a5.625 5.625 0 0 1 9.375-4.334m-9.375 0a5.625 5.625 0 0 0 9.375 4.334" /></svg>
+                                            </div>
+                                            <h3 class="text-lg font-semibold text-slate-900">Pendirian Perkumpulan</h3>
+                                            <p class="mt-2 text-sm text-slate-600">Fasilitasi pendirian badan hukum untuk organisasi berbasis anggota.</p>
+                                        </div>
+                                        <div class="mt-auto pt-4">
+                                            <p class="text-lg font-bold text-slate-800">Mulai dari <span class="text-brand-pink">Rp 3.5 Jt</span></p>
+                                            <button data-service="Pendirian Perkumpulan" class="open-modal-btn mt-4 block w-full text-center rounded-md bg-brand-pink px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-opacity-80 transition-colors duration-300">Pesan Sekarang</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Service Card: Koperasi -->
+                                <div class="group relative transform hover:-translate-y-2 transition-transform duration-300 ease-in-out">
+                                    <div class="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                                    <div class="relative bg-white p-6 rounded-xl shadow-lg h-full flex flex-col">
+                                        <div>
+                                            <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-brand-pink mb-4">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-white"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375" /></svg>
+                                            </div>
+                                            <h3 class="text-lg font-semibold text-slate-900">Pendirian Koperasi</h3>
+                                            <p class="mt-2 text-sm text-slate-600">Kami memandu Anda dalam setiap langkah pendirian koperasi Anda.</p>
+                                        </div>
+                                        <div class="mt-auto pt-4">
+                                            <p class="text-lg font-bold text-slate-800">Mulai dari <span class="text-brand-pink">Rp 4.0 Jt</span></p>
+                                            <button data-service="Pendirian Koperasi" class="open-modal-btn mt-4 block w-full text-center rounded-md bg-brand-pink px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-opacity-80 transition-colors duration-300">Pesan Sekarang</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Service Card: Partai -->
+                                <div class="group relative transform hover:-translate-y-2 transition-transform duration-300 ease-in-out">
+                                    <div class="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                                    <div class="relative bg-white p-6 rounded-xl shadow-lg h-full flex flex-col">
+                                        <div>
+                                            <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-brand-pink mb-4">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-white"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.005-10.499l-3.11.732a9 9 0 0 1-6.085-.711l-.108-.054a9 9 0 0 0-6.208-.682L3 4.5M3 15V4.5" /></svg>
+                                            </div>
+                                            <h3 class="text-lg font-semibold text-slate-900">Pendirian Partai Politik</h3>
+                                            <p class="mt-2 text-sm text-slate-600">Layanan khusus untuk memenuhi syarat pendirian partai politik.</p>
+                                        </div>
+                                        <div class="mt-auto pt-4">
+                                            <p class="text-lg font-bold text-slate-800">Mulai dari <span class="text-brand-pink">Rp 10.0 Jt</span></p>
+                                            <button data-service="Pendirian Partai Politik" class="open-modal-btn mt-4 block w-full text-center rounded-md bg-brand-pink px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-opacity-80 transition-colors duration-300">Pesan Sekarang</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Service Card: Kelompok Tani -->
+                                <div class="group relative transform hover:-translate-y-2 transition-transform duration-300 ease-in-out">
+                                    <div class="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                                    <div class="relative bg-white p-6 rounded-xl shadow-lg h-full flex flex-col">
+                                        <div>
+                                            <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-brand-pink mb-4">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-white"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" /></svg>
+                                            </div>
+                                            <h3 class="text-lg font-semibold text-slate-900">Pendirian Kelompok Tani</h3>
+                                            <p class="mt-2 text-sm text-slate-600">Legalisasi kelompok tani untuk kemudahan akses program pemerintah.</p>
+                                        </div>
+                                        <div class="mt-auto pt-4">
+                                            <p class="text-lg font-bold text-slate-800">Mulai dari <span class="text-brand-pink">Rp 1.0 Jt</span></p>
+                                            <button data-service="Pendirian Kelompok Tani" class="open-modal-btn mt-4 block w-full text-center rounded-md bg-brand-pink px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-opacity-80 transition-colors duration-300">Pesan Sekarang</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <!-- Service Card: Lainnya -->
+                                <div class="group relative transform hover:-translate-y-2 transition-transform duration-300 ease-in-out">
+                                    <div class="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                                    <div class="relative bg-white p-6 rounded-xl shadow-lg h-full flex flex-col">
+                                        <div>
+                                            <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-brand-pink mb-4">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-white"><path stroke-linecap="round" stroke-linejoin="round" d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+                                            </div>
+                                            <h3 class="text-lg font-semibold text-slate-900">Layanan Lainnya</h3>
+                                            <p class="mt-2 text-sm text-slate-600">Konsultasikan kebutuhan legalitas usaha Anda lainnya bersama kami.</p>
+                                        </div>
+                                        <div class="mt-auto pt-4">
+                                             <p class="text-slate-600">Harga disesuaikan dengan kebutuhan.</p>
+                                            <a href="#footer" class="mt-4 block w-full text-center rounded-md bg-slate-800 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-slate-700 transition-colors duration-300">Hubungi Kami</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- WhyUs Section -->
+                    <section id="why-us" class="py-20 sm:py-24 bg-slate-50 rounded-2xl text-center">
+                        <div class="container mx-auto">
+                             <div class="max-w-4xl mx-auto">
+                                <h2 class="text-base font-semibold text-brand-pink">Keunggulan Kami</h2>
+                                <p class="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+                                    Mengapa Memilih BURAQ?
+                                </p>
+                                <p class="mt-6 text-lg leading-8 text-slate-600">
+                                    Kami berkomitmen untuk memberikan pengalaman terbaik dalam proses pendirian usaha Anda, dengan berbagai keunggulan yang kami tawarkan.
+                                </p>
+                                <dl class="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none text-left">
+                                    <div class="relative pl-9">
+                                        <dt class="inline font-semibold text-gray-900">
+                                            <div class="absolute left-1 top-1 h-5 w-5">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-brand-pink"><path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.06 0l4-5.5Z" clip-rule="evenodd" /></svg>
+                                            </div>
+                                            Profesional & Berpengalaman
+                                        </dt>
+                                        <dd class="inline pl-2 text-slate-600">Tim ahli kami siap memberikan layanan terbaik dan terpercaya.</dd>
+                                    </div>
+                                    <div class="relative pl-9">
+                                        <dt class="inline font-semibold text-gray-900">
+                                            <div class="absolute left-1 top-1 h-5 w-5">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-brand-pink"><path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.06 0l4-5.5Z" clip-rule="evenodd" /></svg>
+                                            </div>
+                                            Proses Cepat & Mudah
+                                        </dt>
+                                        <dd class="inline pl-2 text-slate-600">Kami menyederhanakan birokrasi agar Anda bisa fokus pada bisnis.</dd>
+                                    </div>
+                                    <div class="relative pl-9">
+                                        <dt class="inline font-semibold text-gray-900">
+                                            <div class="absolute left-1 top-1 h-5 w-5">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-brand-pink"><path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.06 0l4-5.5Z" clip-rule="evenodd" /></svg>
+                                            </div>
+                                            Harga Terjangkau
+                                        </dt>
+                                        <dd class="inline pl-2 text-slate-600">Paket layanan kompetitif tanpa biaya tersembunyi.</dd>
+                                    </div>
+                                    <div class="relative pl-9">
+                                        <dt class="inline font-semibold text-gray-900">
+                                            <div class="absolute left-1 top-1 h-5 w-5">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-brand-pink"><path fill-rule="evenodd" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16Zm3.857-9.809a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.06 0l4-5.5Z" clip-rule="evenodd" /></svg>
+                                            </div>
+                                            Konsultasi Gratis
+                                        </dt>
+                                        <dd class="inline pl-2 text-slate-600">Diskusikan kebutuhan Anda dengan kami tanpa dipungut biaya.</dd>
+                                    </div>
+                                </dl>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Process Section -->
+                    <section id="process" class="py-20 sm:py-24">
+                        <div class="container mx-auto">
+                            <div class="text-center">
+                                <h2 class="text-base font-semibold text-brand-pink">Alur Kerja</h2>
+                                <p class="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+                                    Proses Mudah dalam 4 Langkah
+                                </p>
+                                <p class="mt-6 text-lg leading-8 text-slate-600 max-w-2xl mx-auto">
+                                    Kami merancang proses yang efisien dan transparan untuk kenyamanan Anda.
+                                </p>
+                            </div>
+
+                            <div class="relative mt-16">
+                                <div class="hidden lg:block absolute top-1/2 left-0 w-full h-px bg-slate-300 -translate-y-1/2" style="border-top: 2px dashed currentColor;"></div>
+                                <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+                                    <div class="relative text-center p-4">
+                                        <div class="flex items-center justify-center mb-4">
+                                            <div class="bg-white p-3 rounded-full shadow-lg border border-slate-200">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 mx-auto text-brand-pink"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 0 1 .865-.501 48.172 48.172 0 0 0 3.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.397 48.397 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" /></svg>
+                                            </div>
+                                        </div>
+                                        <h3 class="text-lg font-semibold text-slate-900">1. Konsultasi & Penawaran</h3>
+                                        <p class="mt-2 text-sm text-slate-600">Hubungi kami untuk konsultasi awal gratis. Kami akan memberikan penawaran terbaik sesuai kebutuhan Anda.</p>
+                                    </div>
+                                    <div class="relative text-center p-4">
+                                        <div class="flex items-center justify-center mb-4">
+                                            <div class="bg-white p-3 rounded-full shadow-lg border border-slate-200">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 mx-auto text-brand-pink"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m5.231 13.481L15 17.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" /></svg>
+                                            </div>
+                                        </div>
+                                        <h3 class="text-lg font-semibold text-slate-900">2. Pengumpulan Dokumen</h3>
+                                        <p class="mt-2 text-sm text-slate-600">Siapkan dokumen yang diperlukan. Tim kami akan membantu memverifikasi kelengkapannya.</p>
+                                    </div>
+                                    <div class="relative text-center p-4">
+                                        <div class="flex items-center justify-center mb-4">
+                                            <div class="bg-white p-3 rounded-full shadow-lg border border-slate-200">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 mx-auto text-brand-pink"><path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" /></svg>
+                                            </div>
+                                        </div>
+                                        <h3 class="text-lg font-semibold text-slate-900">3. Proses Pengajuan</h3>
+                                        <p class="mt-2 text-sm text-slate-600">Kami akan menangani semua proses pengajuan dan birokrasi ke instansi terkait.</p>
+                                    </div>
+                                    <div class="relative text-center p-4">
+                                        <div class="flex items-center justify-center mb-4">
+                                            <div class="bg-white p-3 rounded-full shadow-lg border border-slate-200">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 mx-auto text-brand-pink"><path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.63 2.25a14.98 14.98 0 0 0-6.16 12.12c0 3.193.92 6.224 2.58 8.84.814 1.282 1.81 2.415 2.95 3.436V14.37l-1.72-2.1c-.211-.259-.36-.554-.42-.867l-.21-1.281c-.045-.282.02-.57.18-.814l1.44-2.211c.128-.196.288-.363.47-.496l1.052-.734c.184-.128.4-.196.62-.196s.436.068.62.196l1.052.734c.182.133.342.3.47.496l1.44 2.211c.16.244.225.532.18.814l-.21 1.281c-.06.313-.21.608-.42.867l-1.72 2.1Z" /></svg>
+                                            </div>
+                                        </div>
+                                        <h3 class="text-lg font-semibold text-slate-900">4. Legalitas Selesai</h3>
+                                        <p class="mt-2 text-sm text-slate-600">Selamat! Badan usaha Anda telah resmi terdaftar dan siap beroperasi.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </main>
+
+            <!-- Footer -->
+            <footer id="footer" class="bg-slate-900 text-slate-300">
+                <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div>
+                            <h2 class="text-2xl font-bold text-white">BURAQ<span class="text-brand-pink">.</span></h2>
+                            <p class="mt-2 text-sm max-w-xs">
+                                Partner terpercaya Anda dalam memulai dan mengembangkan legalitas usaha di Indonesia.
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-white">Hubungi Kami</h3>
+                            <ul class="mt-4 space-y-2 text-sm">
+                                <li class="flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-brand-pink"><path d="M3 4a2 2 0 0 0-2 2v1.161l8.441 4.221a1.25 1.25 0 0 0 1.118 0L19 7.162V6a2 2 0 0 0-2-2H3Z" /><path d="m19 8.839-7.77 3.885a2.75 2.75 0 0 1-2.46 0L1 8.839V14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8.839Z" /></svg>
+                                    <a href="mailto:naraskaryanusantara@gmail.com" class="hover:text-white transition-colors">naraskaryanusantara@gmail.com</a>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-brand-pink"><path fill-rule="evenodd" d="M2 3.5A1.5 1.5 0 0 1 3.5 2h1.148a1.5 1.5 0 0 1 1.465 1.175l.716 3.223a1.5 1.5 0 0 1-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 0 0 6.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 0 1 1.767-1.052l3.223.716A1.5 1.5 0 0 1 18 15.352V16.5a1.5 1.5 0 0 1-1.5 1.5h-1.528a13 13 0 0 1-11.472-11.472A3.528 3.528 0 0 1 2 3.5Z" clip-rule="evenodd" /></svg>
+                                    <a href="tel:+628563231191" class="hover:text-white transition-colors">08563231191</a>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-5 h-5 text-brand-pink flex-shrink-0 mt-0.5"><path fill-rule="evenodd" d="M9.69 18.933.003.001a9.995 9.995 0 0 1 5.6-1.282A10 10 0 0 0 10 2 9.995 9.995 0 0 0 4.307 17.65l.003-.001a10 10 0 0 0 5.38 1.282Z" clip-rule="evenodd" /></svg>
+                                    <span>Kp. Singatuwuh, Desa Jatisari, Kec. Cisompet, Kab. Garut.</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-white">Siap Memulai?</h3>
+                            <p class="mt-4 text-sm">Jadwalkan konsultasi gratis hari ini dan ambil langkah pertama menuju kesuksesan bisnis Anda.</p>
+                            <a href="https://wa.me/628563231191" target="_blank" rel="noopener noreferrer" class="mt-4 inline-block rounded-md bg-brand-pink px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-pink transition-colors duration-300">
+                                Konsultasi Sekarang
+                            </a>
+                        </div>
+                    </div>
+                    <div class="mt-8 border-t border-slate-800 pt-8 text-center text-sm">
+                        <p>&copy; 2024 BURAQ. All rights reserved.</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Order Modal -->
+    <div id="order-modal" class="fixed inset-0 z-50 bg-black/70 flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-300">
+        <div id="modal-content" class="bg-white rounded-lg shadow-xl w-full max-w-lg p-6 relative transform transition-transform duration-300 scale-95">
+            <button id="close-modal-btn" class="absolute top-4 right-4 text-slate-500 hover:text-slate-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h3 class="text-2xl font-bold text-slate-900 mb-4">Formulir Pemesanan</h3>
+            <form id="order-form">
+                <div class="mb-4">
+                    <label for="package-details" class="block text-sm font-medium text-slate-700">Rincian Paket</label>
+                    <input type="text" id="package-details" name="package-details" class="mt-1 block w-full px-3 py-2 bg-slate-100 border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-pink focus:border-brand-pink sm:text-sm" readonly>
+                </div>
+                <div class="mb-4">
+                    <label for="full-name" class="block text-sm font-medium text-slate-700">Nama Lengkap</label>
+                    <input type="text" id="full-name" name="full-name" required class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm placeholder-slate-400 focus:outline-none focus:ring-brand-pink focus:border-brand-pink sm:text-sm">
+                </div>
+                 <div class="mb-4">
+                    <label for="phone-number" class="block text-sm font-medium text-slate-700">Nomor HP</label>
+                    <input type="tel" id="phone-number" name="phone-number" required class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm placeholder-slate-400 focus:outline-none focus:ring-brand-pink focus:border-brand-pink sm:text-sm">
+                </div>
+                 <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium text-slate-700">Alamat Email Aktif</label>
+                    <input type="email" id="email" name="email" required class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm placeholder-slate-400 focus:outline-none focus:ring-brand-pink focus:border-brand-pink sm:text-sm">
+                </div>
+                <div class="mb-4">
+                    <label for="address" class="block text-sm font-medium text-slate-700">Alamat Lengkap</label>
+                    <textarea id="address" name="address" rows="3" required class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm placeholder-slate-400 focus:outline-none focus:ring-brand-pink focus:border-brand-pink sm:text-sm"></textarea>
+                </div>
+                <div>
+                    <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-brand-pink hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-pink">
+                        Kirim Pesanan
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Mobile Sidebar Toggle Logic ---
+            const mobileSidebarContainer = document.getElementById('mobile-sidebar-container');
+            const openSidebarBtn = document.getElementById('open-sidebar-btn');
+            const closeSidebarBtn = document.getElementById('close-sidebar-btn');
+            const sidebarOverlay = document.getElementById('sidebar-overlay');
+            
+            const openSidebar = () => mobileSidebarContainer.classList.remove('hidden');
+            const closeSidebar = () => mobileSidebarContainer.classList.add('hidden');
+
+            openSidebarBtn.addEventListener('click', openSidebar);
+            closeSidebarBtn.addEventListener('click', closeSidebar);
+            sidebarOverlay.addEventListener('click', closeSidebar);
+            
+            // --- Smooth Scrolling for All Anchor Links ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return; // Do nothing for placeholder links
+                    
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                    
+                    // Also close mobile sidebar if it's open
+                    if (!mobileSidebarContainer.classList.contains('hidden')) {
+                        closeSidebar();
+                    }
+                });
+            });
+
+            // --- Active Sidebar Link Highlighting on Scroll ---
+            const sections = document.querySelectorAll('main section[id]');
+            const navLinksDesktop = document.querySelectorAll('#nav-links-desktop a');
+            const navLinksMobile = document.querySelectorAll('#nav-links-mobile a');
+            const allNavLinks = [...navLinksDesktop, ...navLinksMobile];
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.5 // A section is "active" when 50% of it is visible
+            };
+
+            const setActiveLink = (id) => {
+                allNavLinks.forEach(link => {
+                    // Reset styles for all links
+                    link.classList.remove('bg-slate-800', 'text-white');
+                    link.classList.add('text-slate-300', 'hover:text-white', 'hover:bg-slate-800');
+
+                    // Apply active styles to the matching link
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('bg-slate-800', 'text-white');
+                        link.classList.remove('text-slate-300', 'hover:text-white', 'hover:bg-slate-800');
+                    }
+                });
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setActiveLink(entry.target.getAttribute('id'));
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // --- Order Modal Logic ---
+            const orderModal = document.getElementById('order-modal');
+            const modalContent = document.getElementById('modal-content');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+            const openModalBtns = document.querySelectorAll('.open-modal-btn');
+            const packageDetailsInput = document.getElementById('package-details');
+            const orderForm = document.getElementById('order-form');
+
+            const showModal = () => {
+                orderModal.classList.remove('hidden');
+                setTimeout(() => {
+                    orderModal.classList.add('opacity-100');
+                    modalContent.classList.remove('scale-95');
+                    modalContent.classList.add('scale-100');
+                }, 10);
+            };
+
+            const hideModal = () => {
+                orderModal.classList.remove('opacity-100');
+                modalContent.classList.remove('scale-100');
+                modalContent.classList.add('scale-95');
+                setTimeout(() => {
+                    orderModal.classList.add('hidden');
+                }, 300);
+            };
+
+            openModalBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const serviceName = this.getAttribute('data-service');
+                    packageDetailsInput.value = serviceName;
+                    showModal();
+                });
+            });
+
+            closeModalBtn.addEventListener('click', hideModal);
+
+            orderModal.addEventListener('click', function(e) {
+                if (e.target === orderModal) {
+                    hideModal();
+                }
+            });
+
+            orderForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Get form data
+                const packageDetails = document.getElementById('package-details').value;
+                const fullName = document.getElementById('full-name').value;
+                const phoneNumber = document.getElementById('phone-number').value;
+                const email = document.getElementById('email').value;
+                const address = document.getElementById('address').value;
+
+                // Format the message for WhatsApp
+                const message = `
+*Pemesanan Baru dari Website BURAQ*
+
+Halo, saya ingin memesan layanan dengan rincian sebagai berikut:
+
+- *Paket Layanan:* ${packageDetails}
+- *Nama Lengkap:* ${fullName}
+- *Nomor HP:* ${phoneNumber}
+- *Alamat Email:* ${email}
+- *Alamat Lengkap:* ${address}
+
+Mohon untuk segera diproses. Terima kasih!
+                `.trim().replace(/^\s+/gm, "");
+
+                // Construct the WhatsApp URL
+                const whatsappNumber = '628563231191';
+                const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+                // Open WhatsApp in a new tab
+                window.open(whatsappUrl, '_blank');
+
+                // Reset the form and hide the modal
+                orderForm.reset();
+                hideModal();
+            });
+
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && !orderModal.classList.contains('hidden')) {
+                    hideModal();
+                }
+            });
+        });
+    </script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
